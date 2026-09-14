@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enano Boyacense AR</title>
     
-    <!-- Importación oficial y estable de model-viewer -->
+    <!-- Importación del visor de Google -->
     <script type="module" src="https://googleapis.com"></script>
 
     <style>
         body {
             margin: 0;
             padding: 20px;
-            background-color: #f3f3f3;
+            background-color: #222222; /* Fondo oscuro general para resaltar el visor */
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -21,39 +21,37 @@
             min-height: 95vh;
         }
 
-        /* Dimensiones fijas para el recuadro del visor */
         .contenedor-modelo {
             width: 100%;
             max-width: 500px;
             height: 500px;
-            background-color: #ffffff;
+            background-color: #333333; /* Fondo gris oscuro para contrastar si el modelo es blanco */
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
             overflow: hidden;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #444444;
         }
 
         model-viewer {
             width: 100% !important;
             height: 100% !important;
             display: block;
-            background-color: #fcfcfc;
         }
 
         .cuadro-texto {
             margin-top: 20px;
-            background-color: white;
+            background-color: #333333;
             padding: 15px;
             border-radius: 8px;
             text-align: center;
             max-width: 500px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #444444;
         }
 
         p {
             margin: 5px 0;
             font-size: 14px;
-            color: #444;
+            color: #eeeeee;
             line-height: 1.4;
         }
     </style>
@@ -61,21 +59,24 @@
 <body>
 
     <div class="contenedor-modelo">
-        <!-- Usamos la URL absoluta de tu GitHub Pages para asegurar la carga en móviles -->
+        <!-- Añadimos iluminación artificial neutral y centrado forzado de cámara -->
         <model-viewer 
-            src="https://github.io" 
+            src="EnanoLigh.glb" 
             alt="Modelo 3D del Enano Boyacense" 
             ar 
             ar-modes="scene-viewer webxr" 
             camera-controls 
             touch-action="pan-y"
-            shadow-intensity="1">
+            environment-image="neutral"
+            shadow-intensity="1"
+            exposure="1.5"
+            auto-rotate>
         </model-viewer>
     </div>
 
     <div class="cuadro-texto">
-        <p><strong>💻 En Computador:</strong> Haz clic dentro del recuadro blanco y arrastra con el mouse para rotar el modelo en 3D.</p>
-        <p><strong>📱 En Android:</strong> Abre este enlace en tu celular. Una vez cargue el modelo, abajo a la derecha aparecerá el botón para activarlo en tu habitación.</p>
+        <p><strong>💻 En Computador:</strong> Si el fondo es oscuro y el enano sigue sin verse, el archivo requiere revisión de mallas.</p>
+        <p><strong>📱 En Android:</strong> Abre este enlace. Al forzar la luz neutral, el botón circular de AR se activará en la base tan pronto el motor procese el archivo.</p>
     </div>
 
 </body>
