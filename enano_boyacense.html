@@ -5,80 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enano Boyacense AR</title>
     
-    <!-- Importación oficial y estable de model-viewer -->
-    <script type="module" src="https://googleapis.com"></script>
+    <!-- Importación oficial directa del visor de Google -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
 
     <style>
         body {
             margin: 0;
-            padding: 20px;
-            background-color: #f3f3f3;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 95vh;
-        }
-
-        .contenedor-modelo {
-            width: 100%;
-            max-width: 500px;
-            height: 500px;
+            padding: 0;
             background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            border: 2px solid #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
         }
-
         model-viewer {
-            width: 100% !important;
-            height: 100% !important;
-            display: block;
-            background-color: #fcfcfc;
-        }
-
-        .cuadro-texto {
-            margin-top: 20px;
-            background-color: white;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            max-width: 500px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        p {
-            margin: 5px 0;
-            font-size: 14px;
-            color: #444;
-            line-height: 1.4;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
 <body>
 
-    <div class="contenedor-modelo">
-        <!-- Forzamos el encuadre automático hacia el volumen real del objeto -->
-        <model-viewer 
-            src="EnanoLigh.glb" 
-            alt="Modelo 3D del Enano Boyacense" 
-            ar 
-            ar-modes="scene-viewer webxr" 
-            camera-controls 
-            touch-action="pan-y"
-            camera-target="auto"
-            bounds="tight"
-            shadow-intensity="1"
-            exposure="1">
-        </model-viewer>
-    </div>
-
-    <div class="cuadro-texto">
-        <p><strong>💻 En Computador:</strong> Haz clic dentro del recuadro blanco y arrastra con el mouse para rotar el modelo en 3D.</p>
-        <p><strong>📱 En Android:</strong> Abre este enlace en tu celular. Tan pronto el visor encuadre al personaje automáticamente, el botón de AR aparecerá abajo a la derecha.</p>
-    </div>
+    <!-- Código directo con atributos nativos de Realidad Aumentada -->
+    <model-viewer 
+        src="EnanoLigh.glb" 
+        alt="Modelo 3D del Enano Boyacense" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        touch-action="pan-y"
+        shadow-intensity="1">
+    </model-viewer>
 
 </body>
 </html>
