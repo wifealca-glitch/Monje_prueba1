@@ -21,11 +21,11 @@
             min-height: 95vh;
         }
 
-        /* Forzamos dimensiones físicas reales en el contenedor */
+        /* Dimensiones fijas para el recuadro del visor */
         .contenedor-modelo {
             width: 100%;
             max-width: 500px;
-            height: 500px; /* Altura fija para evitar que colapse */
+            height: 500px;
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -33,7 +33,6 @@
             border: 2px solid #e0e0e0;
         }
 
-        /* Estilo forzado para el visor 3D */
         model-viewer {
             width: 100% !important;
             height: 100% !important;
@@ -61,10 +60,10 @@
 </head>
 <body>
 
-    <!-- Contenedor con medidas fijas para forzar la visualización -->
     <div class="contenedor-modelo">
+        <!-- Usamos la URL absoluta de tu GitHub Pages para asegurar la carga en móviles -->
         <model-viewer 
-            src="./EnanoLigh.glb" 
+            src="https://github.io" 
             alt="Modelo 3D del Enano Boyacense" 
             ar 
             ar-modes="scene-viewer webxr" 
@@ -76,7 +75,7 @@
 
     <div class="cuadro-texto">
         <p><strong>💻 En Computador:</strong> Haz clic dentro del recuadro blanco y arrastra con el mouse para rotar el modelo en 3D.</p>
-        <p><strong>📱 En Android:</strong> Abre este enlace en tu celular. Te cargará el modelo y abajo a la derecha verás el botón redondo para activarlo en tu habitación.</p>
+        <p><strong>📱 En Android:</strong> Abre este enlace en tu celular. Una vez cargue el modelo, abajo a la derecha aparecerá el botón para activarlo en tu habitación.</p>
     </div>
 
 </body>
