@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enano Boyacense AR</title>
     
-    <!-- Importación oficial directa del visor de Google -->
-    <script type="module" src="https://googleapis.com"></script>
+    <!-- Cargamos una versión ultra estable del visor de Google -->
+    <script type="module" src="https://unpkg.com"></script>
 
     <style>
         body {
@@ -27,16 +27,9 @@
 </head>
 <body>
 
-    <!-- Código corregido apuntando exactamente a EnanoLigh.glb -->
-    <model-viewer 
-        src="EnanoLigh.glb" 
-        alt="Modelo 3D del Enano Boyacense" 
-        ar 
-        ar-modes="webxr scene-viewer quick-look" 
-        camera-controls 
-        touch-action="pan-y"
-        shadow-intensity="1">
-    </model-viewer>
+    <!-- Código con la sintaxis corregida en una sola línea para evitar errores del servidor -->
+    <model-viewer src="EnanoLigh.glb" alt="Modelo 3D del Enano Boyacense" ar ar-modes="scene-viewer webxr quick-look" camera-controls touch-action="pan-y" shadow-intensity="1"></model-viewer>
 
 </body>
 </html>
+
