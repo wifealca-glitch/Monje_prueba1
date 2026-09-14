@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enano Boyacense en Realidad Aumentada</title>
-    <!-- Importa el componente model-viewer de Google -->
+    <!-- Importa el componente oficial model-viewer de Google -->
     <script type="module" src="https://googleapis.com"></script>
-    <!-- Importa la librería para generar el código QR en PC -->
+    <!-- Importa la librería para generar el código QR en la PC -->
     <script src="https://cloudflare.com"></script>
     
     <style>
@@ -23,7 +23,7 @@
             background-color: #f5f5f5;
         }
         
-        /* Contenedor del modelo 3D */
+        /* Contenedor del visor 3D */
         .viewer-container {
             flex: 1;
             max-width: 800px;
@@ -40,7 +40,7 @@
             height: 100%;
         }
 
-        /* Panel lateral para PC (Instrucciones y QR) */
+        /* Panel lateral de instrucciones exclusivo para pantallas de PC */
         .instructions-panel {
             width: 280px;
             background: white;
@@ -68,7 +68,7 @@
             margin: 20px 0;
         }
 
-        /* Diseño adaptable para celulares Android */
+        /* Diseño responsivo para celulares Android */
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -79,35 +79,36 @@
                 height: 70vh;
             }
             .instructions-panel {
-                display: none; /* Oculta el QR en el celular */
+                display: none; /* Se oculta automáticamente en el celular */
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Visor del Modelo 3D con forzado de Scene-Viewer para Android -->
+    <!-- 1. Visor del Enano Boyacense optimizado con ar-modes nativos -->
     <div class="viewer-container">
         <model-viewer 
             src="EnanoLigh.glb" 
-            alt="Un modelo 3D del Enano Boyacense" 
+            alt="Modelo 3D del Enano Boyacense" 
             ar 
-            ar-modes="scene-viewer webxr" 
+            ar-modes="scene-viewer webxr quick-look" 
             camera-controls 
             touch-action="pan-y"
             shadow-intensity="1" 
-            exposure="1">
+            exposure="1"
+            interaction-prompt="auto">
         </model-viewer>
     </div>
 
-    <!-- 2. Panel de transferencia a Celular (Solo visible en tu PC) -->
+    <!-- 2. Panel dinámico para escanear desde la PC -->
     <div class="instructions-panel">
-        <h2>¿Quieres verlo en tu espacio?</h2>
-        <p>Escanea este código con la cámara de tu <strong>Android</strong> para proyectar al Enano Boyacense.</p>
+        <h2>¿Ver en Realidad Aumentada?</h2>
+        <p>El botón de AR **solo se activa en pantallas móviles**. Escanea este código con tu celular Android para proyectarlo en tu espacio real:</p>
         <div id="qrcode"></div>
     </div>
 
-    <!-- Script para el QR Automático -->
+    <!-- Script de control para el código QR automático -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             new QRCode(document.getElementById("qrcode"), {
