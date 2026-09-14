@@ -3,123 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enano Boyacense en Realidad Aumentada</title>
-    <!-- Importa el componente oficial model-viewer de Google -->
-    <script type="module" src="https://googleapis.com"></script>
-    <!-- Importa la librería para generar el código QR en la PC -->
-    <script src="https://cloudflare.com"></script>
-    
+    <title>Enano Boyacense AR</title>
+    <!-- Cargamos la librería oficial de Google desde una fuente ultra estable -->
+    <script type="module" src="https://unpkg.com"></script>
     <style>
         body {
             margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
             display: flex;
-            flex-direction: row;
             justify-content: center;
             align-items: center;
-            gap: 40px;
-            min-height: 90vh;
-            background-color: #f5f5f5;
+            background-color: #f0f0f0;
+            font-family: sans-serif;
         }
-        
-        /* Contenedor del visor 3D */
-        .viewer-container {
-            flex: 1;
-            max-width: 800px;
-            height: 75vh;
-            position: relative;
+        model-viewer {
+            width: 95vw;
+            height: 90vh;
             background-color: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
-        
-        model-viewer {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Panel lateral de instrucciones exclusivo para pantallas de PC */
-        .instructions-panel {
-            width: 280px;
-            background: white;
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .instructions-panel h2 {
-            font-size: 1.2rem;
-            color: #333;
-            margin-top: 0;
-        }
-
-        .instructions-panel p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.4;
-        }
-
-        #qrcode {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        /* Diseño responsivo para celulares Android */
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-                padding: 10px;
-            }
-            .viewer-container {
-                width: 100%;
-                height: 70vh;
-            }
-            .instructions-panel {
-                display: none; /* Se oculta en el celular */
-            }
+            --ar-button-display: block; /* Fuerza a que el botón nativo de AR sea visible en móviles */
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Visor del Enano Boyacense con el nombre de archivo corregido (Sensible a Mayúsculas) -->
-    <div class="viewer-container">
-        <model-viewer 
-            src="EnanoLigh.glb" 
-            alt="Modelo 3D del Enano Boyacense" 
-            ar 
-            ar-modes="scene-viewer webxr quick-look" 
-            camera-controls 
-            touch-action="pan-y"
-            shadow-intensity="1" 
-            exposure="1">
-        </model-viewer>
-    </div>
-
-    <!-- 2. Panel dinámico para escanear desde la PC -->
-    <div class="instructions-panel">
-        <h2>¿Ver en Realidad Aumentada?</h2>
-        <p>Escanea este código QR con tu celular Android para proyectar al Enano Boyacense en tu espacio real:</p>
-        <div id="qrcode"></div>
-    </div>
-
-    <!-- Script de control para el código QR automático -->
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            new QRCode(document.getElementById("qrcode"), {
-                text: window.location.href,
-                width: 180,
-                height: 180,
-                colorDark : "#000000",
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
-            });
-        });
-    </script>
+    <!-- Visor directo sin intermediarios ni scripts de códigos QR -->
+    <model-viewer 
+        src="./EnanoLigh.glb" 
+        alt="Modelo 3D del Enano Boyacense" 
+        ar 
+        ar-modes="scene-viewer webxr" 
+        camera-controls 
+        touch-action="pan-y"
+        shadow-intensity="1">
+    </model-viewer>
 
 </body>
 </html>
