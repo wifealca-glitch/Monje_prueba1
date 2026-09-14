@@ -79,14 +79,14 @@
                 height: 70vh;
             }
             .instructions-panel {
-                display: none; /* Se oculta automáticamente en el celular */
+                display: none; /* Se oculta en el celular */
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Visor del Enano Boyacense optimizado con ar-modes nativos -->
+    <!-- 1. Visor del Enano Boyacense con el nombre de archivo corregido (Sensible a Mayúsculas) -->
     <div class="viewer-container">
         <model-viewer 
             src="EnanoLigh.glb" 
@@ -96,15 +96,14 @@
             camera-controls 
             touch-action="pan-y"
             shadow-intensity="1" 
-            exposure="1"
-            interaction-prompt="auto">
+            exposure="1">
         </model-viewer>
     </div>
 
     <!-- 2. Panel dinámico para escanear desde la PC -->
     <div class="instructions-panel">
         <h2>¿Ver en Realidad Aumentada?</h2>
-        <p>El botón de AR **solo se activa en pantallas móviles**. Escanea este código con tu celular Android para proyectarlo en tu espacio real:</p>
+        <p>Escanea este código QR con tu celular Android para proyectar al Enano Boyacense en tu espacio real:</p>
         <div id="qrcode"></div>
     </div>
 
